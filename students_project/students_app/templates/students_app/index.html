@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Detail View</title>
+    </head>
+    <body>
+        {% if latest_student_list %}
+        <ul>
+            {% for student in latest_student_list%}
+            <li>
+                <!-- <a href="/students/{{student.id}}/"> -->
+                <a href="{% url 'students_app:detail' student.id %}">
+                    {{student.id}}
+                    {{ student.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2 style="color: lightblue;">No one is available</h2>
+        {% endif %}
+    </body>
+</html>
